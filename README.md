@@ -1,2 +1,2 @@
-# k-means-clustering-from-scratch
+# k means clustering from scratch
  
