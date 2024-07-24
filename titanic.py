@@ -12,6 +12,7 @@ df = pd.read_excel('titanic.xls')
 print(df.head())
 
 df.drop(['body','name'], axis=1, inplace=True)
+df.fillna(0)
 
 # this does not work
 # df = df.apply(pd.to_numeric, errors='coerce').fillna(0).astype(float)
@@ -71,4 +72,4 @@ def handling(df):
     return df
 
 df = handling(df)
-# print(df.head())
+print(df.head())
