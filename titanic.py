@@ -5,7 +5,3 @@ from matplotlib import style
 import pandas as pd
 import numpy as np
 
-style.use('ggplot')
-
-df = pd.read_excel('titanic.xls')
-print(df.head())
