@@ -12,7 +12,6 @@ df = pd.read_excel('titanic.xls')
 print(df.head())
 
 df.drop(['body','name'], axis=1, inplace=True)
-df.fillna(0)
 
 # this does not work
 # df = df.apply(pd.to_numeric, errors='coerce').fillna(0).astype(float)
@@ -39,6 +38,9 @@ def converting(df):
 df = converting(df)
 print(df.head())
 
+# one data type at a time
+# while using encoders
+df.fillna(0, inplace=True)
 
 # can use something called "one-hot" encoding
 # this will split the categorical feature into multiple features of all the different options 
