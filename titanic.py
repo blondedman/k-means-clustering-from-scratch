@@ -36,7 +36,7 @@ def converting(df):
     return df
     
 df = converting(df)
-print(df.head())
+# print(df.head())
 
 # one data type at a time
 # while using encoders
@@ -71,7 +71,32 @@ def handling(df):
                     text_digit_vals[unique] = x
                     x += 1
             df [column] = list(map(convert_to_int, df[column]))
+            
     return df
 
 df = handling(df)
-print(df.head())
+# print(df.head())
+
+# dropping various columns
+# to increase accuracy
+# df.drop([''], axis=1)
+
+X = np.array(df.drop(['survived'], axis=1)).astype(float)
+X = preprocessing.scale(X)
+y = np.array(df['survived'])
+
+clf = KMeans(n_clusters=2)
+clf.fit(X)
+
+correct = 0
+
+for i in range(len(X)):
+    predict = np.array(X[i].astype(float))
+    predict = predict.reshape(-1,len(predict))
+    
+    prediction = clf.predict(predict)
+    
+    if prediction[0] == y[i]:
+        correct += 1 
+        
+print(correct/len(X))
