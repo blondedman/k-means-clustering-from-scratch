@@ -42,7 +42,7 @@ df = converting(df)
 # while using encoders
 df.fillna(0, inplace=True)
 
-# can use something called "one-hot" encoding
+# we can use something called "one-hot" encoding
 # this will split the categorical feature into multiple features of all the different options 
 
 # for a male entry, the features will be:
@@ -75,7 +75,7 @@ def handling(df):
     return df
 
 df = handling(df)
-# print(df.head())
+print(df.head())
 
 # dropping various columns
 # to increase accuracy
