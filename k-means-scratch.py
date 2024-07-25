@@ -17,9 +17,30 @@ class KMeans:
         self.k = k
         self.tol = tol
         self.iter = iter
-    
+        
     def fit(self, data):
-        pass
+        
+        self.centroids = {}
+        
+        for i in range(self.k):
+            self.centroids[i] = data[i]
+            
+        for i in range(self.iter):
+            self.classifications = {}
+            
+            for i in range(self.k):
+                self.classifications[i] = []
+            
+            for featureset in data:
+                distances = [np.linalg.norm(featureset-self.centroids[centroid]) for centroid in self.centroids]
+                classification = distances.index(min(distances))
+                self.classifications[classification].append(featureset)
+        
+        previous = dict(self.centroids)
+        
+        for classification in self.centroids:
+            pass
+            # self.centroids[classification] = np.average(self.classifications[classification], axis=0)
     
     def predict(self,data):
         pass
