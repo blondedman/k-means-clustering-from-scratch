@@ -36,10 +36,7 @@ def converting(df):
     return df
     
 df = converting(df)
-# print(df.head())
 
-# one data type at a time
-# while using encoders
 df.fillna(0, inplace=True)
 
 # we can use something called "one-hot" encoding
@@ -101,10 +98,8 @@ for i in range(len(X)):
         
 print(correct/len(X))
 
-
 """
 X = np.array([[1,2],[1.5,1.8],[5,8],[8,8],[1,0.6],[9,11]])
-
 # plt.scatter(X[:,0],X[:,1], s = 20, linewidths=5)
 # plt.show()
 
